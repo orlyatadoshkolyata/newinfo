@@ -10,7 +10,6 @@
 <style>
   :root {
     --violet: #8875E8;
-    --lavender: #B3AEFF;
     --display: "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif;
     --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
@@ -47,23 +46,6 @@
     font-size: clamp(1.05rem, 1.9vw, 1.5rem);
     line-height: 1.45;
   }
-  .back {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: clamp(8px, 2vw, 24px);
-    color: var(--violet);
-    font-size: clamp(1.05rem, 1.9vw, 1.5rem);
-    font-weight: 500;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 1.5px;
-    padding: 6px 8px;
-    border-radius: 8px;
-  }
-  .back:hover { text-decoration-thickness: 2.5px; }
-  .back:focus-visible { outline: 2px solid var(--lavender); outline-offset: 2px; }
-  .back svg { width: 1em; height: 1em; flex: none; }
   .blocks { position: absolute; bottom: 0; display: block; pointer-events: none; }
   .left { left: 0; width: clamp(180px, 33vw, 434px); }
   .right { right: 0; width: clamp(130px, 24vw, 312px); }
@@ -74,11 +56,6 @@
   <div class="content">
     <h1>Будьте внимательны!</h1>
     <p>Регистрация для участия в проекте<br>и в событийных проектах не требуется.</p>
-    <!-- Ссылка ведёт на главную страницу сайта; если пользователь пришёл с этого же сайта, вернёт его на предыдущую страницу -->
-    <a class="back" id="back" href="/">
-      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4 3 8l4 4"/><path d="M3 8h9a5 5 0 0 1 0 10H9"/></svg>
-      Вернуться обратно
-    </a>
   </div>
 
   <svg class="blocks left" viewBox="0 0 434 129" aria-hidden="true">
@@ -93,15 +70,5 @@
     <path d="M198 0 292 79H105z" fill="#FF97A8"/>
   </svg>
 </main>
-<script>
-  document.getElementById('back').addEventListener('click', function (e) {
-    try {
-      if (document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1) {
-        e.preventDefault();
-        history.back();
-      }
-    } catch (err) {}
-  });
-</script>
 </body>
 </html>
